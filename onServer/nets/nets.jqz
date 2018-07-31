@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hotpot-jquiz-file>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description rdf:about="">
+</rdf:Description>
+</rdf:RDF>
+<version>6</version>
+<data>
+<title>&amp;#x003C;img src=&quot;logo-white.gif&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;100&quot; height=&quot;58&quot;  /&amp;#x003E;
+Select the correct net for the shape shown</title>
+<timer>
+<include-timer>0</include-timer>
+<seconds>59</seconds>
+</timer>
+<reading>
+<reading-text></reading-text>
+<include-reading>0</include-reading>
+<reading-title></reading-title>
+</reading>
+<questions>
+<question-record>
+<question>Tetrahedron&amp;#x003C;br&amp;#x003E;&amp;#x003C;img src=&quot;1q.png&quot; alt=&quot;&quot; title=&quot;&quot; height=&quot;300&quot;  align=left  hspace = 10/&amp;#x003E;</question>
+<clue></clue>
+<category></category>
+<weighting>100</weighting>
+<fixed>0</fixed>
+<question-type>1</question-type>
+<answers>
+<answer><text>&amp;#x003C;img src=&quot;1a-1.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;1a-2.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;1a-3.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>1</correct>
+<percent-correct>100</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer></answers>
+</question-record>
+<question-record>
+<question>Cube&amp;#x003C;br&amp;#x003E;&amp;#x003C;img src=&quot;2q.png&quot; alt=&quot;&quot; title=&quot;&quot; height=&quot;300&quot;  align=left  hspace = 10/&amp;#x003E;</question>
+<clue></clue>
+<category></category>
+<weighting>100</weighting>
+<fixed>0</fixed>
+<question-type>1</question-type>
+<answers>
+<answer><text>&amp;#x003C;img src=&quot;2a-1.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>1</correct>
+<percent-correct>100</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;2a-2.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;2a-3.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer></answers>
+</question-record>
+<question-record>
+<question>Octahedron&amp;#x003C;br&amp;#x003E;&amp;#x003C;img src=&quot;3q.png&quot; alt=&quot;&quot; title=&quot;&quot; height=&quot;300&quot;  align=left  hspace = 10/&amp;#x003E;</question>
+<clue></clue>
+<category></category>
+<weighting>100</weighting>
+<fixed>0</fixed>
+<question-type>1</question-type>
+<answers>
+<answer><text>&amp;#x003C;img src=&quot;3a-1.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;3a-2.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>1</correct>
+<percent-correct>100</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text>&amp;#x003C;img src=&quot;3a-3.png&quot; alt=&quot;&quot; title=&quot;&quot; width=&quot;150&quot;  /&amp;#x003E;</text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer><answer><text></text>
+<feedback></feedback>
+<correct>0</correct>
+<percent-correct>0</percent-correct>
+<include-in-mc-options>1</include-in-mc-options>
+</answer></answers>
+</question-record>
+</questions></data>
+<hotpot-config-file>
+<global>
+<separate-js-file>0</separate-js-file>
+<clue-caption>Clue</clue-caption>
+<next-q-caption>=&amp;#x003E;</next-q-caption>
+<last-q-caption>&amp;#x003C;=</last-q-caption>
+<incorrect-indicator>X</incorrect-indicator>
+<font-size>normal</font-size>
+<include-next-ex>0</include-next-ex>
+<restart-caption>Restart</restart-caption>
+<contents-url>contents.htm</contents-url>
+<include-timer>0</include-timer>
+<font-face>Geneva,Arial,sans-serif</font-face>
+<include-scorm-12>0</include-scorm-12>
+<user-string-3>three</user-string-3>
+<show-correct-first-time>0</show-correct-first-time>
+<user-string-2>two</user-string-2>
+<user-string-1>one</user-string-1>
+<vlink-color>#0000CC</vlink-color>
+<title-color>#000033</title-color>
+<correct-indicator>:-)</correct-indicator>
+<contents-caption>Index</contents-caption>
+<show-all-questions-caption>Show all questions</show-all-questions-caption>
+<undo-caption>Undo</undo-caption>
+<header-code></header-code>
+<hint-caption>Hint</hint-caption>
+<check-button-caption>Check</check-button-caption>
+<email>you@yourserver.com</email>
+<show-one-by-one-caption>Show questions one by one</show-one-by-one-caption>
+<name-please>Please enter your name:</name-please>
+<formmail-url>http://yourserver.com/cgi-bin/FormMail.pl</formmail-url>
+<next-ex-caption>=&amp;#x003E;</next-ex-caption>
+<back-caption>&amp;#x003C;=</back-caption>
+<text-color>#000000</text-color>
+<page-bg-color>#ffffff</page-bg-color>
+<times-up>Your time is over!</times-up>
+<nav-bar-color>#000066</nav-bar-color>
+<include-contents>0</include-contents>
+<your-score-is>Your score is </your-score-is>
+<graphic-url></graphic-url>
+<link-color>#0000FF</link-color>
+<keypad-characters></keypad-characters>
+<show-also-correct>1</show-also-correct>
+<correct-first-time>Questions answered correctly first time: </correct-first-time>
+<include-cgi>0</include-cgi>
+<ex-bg-color>#ffffff</ex-bg-color>
+<ok-caption>OK</ok-caption>
+<process-for-rtl>0</process-for-rtl>
+<check-caption>Check</check-caption>
+<include-back>0</include-back>
+<next-correct-letter>*Next correct letter is: </next-correct-letter>
+</global>
+<jquiz>
+<next-caption>Next</next-caption>
+<instructions></instructions>
+<enter-a-guess>Please enter a guess, then check.</enter-a-guess>
+<correct-list>Correct answers:</correct-list>
+<completed-so-far>Completed so far:</completed-so-far>
+<header-code></header-code>
+<include-hint>0</include-hint>
+<include-keypad>0</include-keypad>
+<short-answer-tries-on-hybrid-q>2</short-answer-tries-on-hybrid-q>
+<partly-incorrect>Your answer is partly incorrect.</partly-incorrect>
+<guess-incorrect>Not perfect yet. Please try again.</guess-incorrect>
+<case-sensitive>0</case-sensitive>
+<continuous-scoring>1</continuous-scoring>
+<next-ex-url>nextpage.htm</next-ex-url>
+<send-email>0</send-email>
+<show-also-correct>1</show-also-correct>
+<exercise-subtitle></exercise-subtitle>
+<exercise-completed>You have completed the exercise.</exercise-completed>
+<questions-to-show>10</questions-to-show>
+<shuffle-answers>0</shuffle-answers>
+<guess-correct>Correct!</guess-correct>
+<next-correct-letter>Next correct letter is: </next-correct-letter>
+<show-limited-questions>0</show-limited-questions>
+<shuffle-questions>0</shuffle-questions>
+<include-show-answer>1</include-show-answer>
+<show-correct-first-time>0</show-correct-first-time>
+<separate-javascript-file>0</separate-javascript-file>
+<delete-caption>Delete This Flashcard</delete-caption>
+<show-answer-caption>Show Answer</show-answer-caption>
+</jquiz>
+</hotpot-config-file>
+
+</hotpot-jquiz-file>
