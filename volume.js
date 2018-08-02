@@ -2,7 +2,7 @@
  * BCLearningNetwork.com
  * Volume Calculator  
  * @author Parsa Rajabi - ParsaRajabiPR@gmail.com
- * Date [Month/Year]
+ * August 2018
  */
 
 //// VARIABLES ////
