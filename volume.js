@@ -12,6 +12,15 @@ var FPS = 20;
 var STAGE_WIDTH, STAGE_HEIGHT;
 var gameStarted = false;
 
+var width = 1;
+var height = 1; 
+var length = 1;
+
+var widthSlider, heightSlider, lengthSider;
+var widthOutput, heightOutput, lengthOutput;
+
+var sliderX, sliderY;
+
 
 // Chrome 1+
 var isChrome = !!window.chrome && !!window.chrome.webstore;
@@ -37,7 +46,6 @@ function init() {
  * Main update loop.
  */
 
-
 function update(event) {
     if (gameStarted) {}
 
@@ -58,6 +66,40 @@ function endGame() {
  */
 function initGraphics() {
 
+    
+    sliderX = 665;
+    sliderY = 138;
+    
+     // new Slider(min, max, width, height)
+    widthSlider = new Slider(1, 5, 100, 30).set({
+        x: sliderX,
+        y: sliderY,
+        value: 1 //default value
+    });
+    
+    // new Slider(min, max, width, height)
+    heightSlider = new Slider(1, 5, 100, 30).set({
+        x: sliderX,
+        y: sliderY + 80,
+        value: 1 //default value
+    });
+    
+    // new Slider(min, max, width, height)
+    lengthSider = new Slider(1, 5, 100, 30).set({
+        x: sliderX,
+        y: sliderY + 160,
+        value: 1 //default value
+    });
+    
+    widthSlider.on("change", handleWidthSliderChange, this); // assign event handler to the slider (What function to call)
+    
+    heightSlider.on("change", handleHeightSliderChange, this); // assign event handler to the slider (What function to call)
+    
+    lengthSider.on("change", handleLengthSliderChange, this); // assign event handler to the slider (What function to call)
+    
+    stage.addChild(widthSlider, heightSlider, lengthSider);
+    
+    
     initMuteUnMuteButtons();
     initListeners();
 
@@ -66,7 +108,20 @@ function initGraphics() {
     stage.update();
 }
 
+function handleWidthSliderChange(evt) {
+    width = Math.round(evt.target.value)
+        console.log("Width: " + width );
+}
+                    
+function handleHeightSliderChange(evt) {
+        height = Math.round(evt.target.value)
+        console.log("Height: " + height);
+}
 
+function handleLengthSliderChange(evt) {
+        length = Math.round(evt.target.value)
+        console.log("Length: " + length );
+}
 /*
  * Adds the mute and unmute buttons to the stage and defines listeners
  */
