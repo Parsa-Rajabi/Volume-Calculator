@@ -20,6 +20,7 @@ var widthSlider, heightSlider, lengthSider;
 var widthOutput, heightOutput, lengthOutput;
 
 var sliderX, sliderY;
+var textX, textY;
 
 
 // Chrome 1+
@@ -65,30 +66,32 @@ function endGame() {
  * Place graphics and add them to the stage.
  */
 function initGraphics() {
-    sliderX = 665;
-    sliderY = 138;
-
+    sliderX = 610;
+    sliderY = 160;
+    
+    textX = 660;
+    textY = 125;
     //    width output
     //new text(text, font, color)
     widthOutput = new createjs.Text(width, "21px Krungthep", "#1d55a9");
-    widthOutput.x = sliderX - 35;
-    widthOutput.y = sliderY + 6;
+    widthOutput.x = textX;
+    widthOutput.y = textY;
     stage.addChild(widthOutput);
     
     
       //    width output
     //new text(text, font, color)
     heightOutput = new createjs.Text(width, "20px Krungthep", "#1d55a9");
-    heightOutput.x = sliderX - 35;
-    heightOutput.y = sliderY + 80 + 6;
+    heightOutput.x = textX;
+    heightOutput.y = textY + 80;
     stage.addChild(heightOutput);
     
     
       //    width output
     //new text(text, font, color)
     lengthOutput = new createjs.Text(width, "20px Krungthep", "#1d55a9");
-    lengthOutput.x = sliderX - 35;
-    lengthOutput.y = sliderY + 160 + 6;
+    lengthOutput.x = textX;
+    lengthOutput.y = textY + 160;
     stage.addChild(lengthOutput);
     
     
