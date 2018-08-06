@@ -13,7 +13,7 @@ var STAGE_WIDTH, STAGE_HEIGHT;
 var gameStarted = false;
 
 var width = 1;
-var height = 1; 
+var height = 1;
 var length = 1;
 
 var widthSlider, heightSlider, lengthSider;
@@ -65,41 +65,64 @@ function endGame() {
  * Place graphics and add them to the stage.
  */
 function initGraphics() {
-
-    
     sliderX = 665;
     sliderY = 138;
+
+    //    width output
+    //new text(text, font, color)
+    widthOutput = new createjs.Text(width, "21px Krungthep", "#1d55a9");
+    widthOutput.x = sliderX - 35;
+    widthOutput.y = sliderY + 6;
+    stage.addChild(widthOutput);
     
-     // new Slider(min, max, width, height)
+    
+      //    width output
+    //new text(text, font, color)
+    heightOutput = new createjs.Text(width, "20px Krungthep", "#1d55a9");
+    heightOutput.x = sliderX - 35;
+    heightOutput.y = sliderY + 80 + 6;
+    stage.addChild(heightOutput);
+    
+    
+      //    width output
+    //new text(text, font, color)
+    lengthOutput = new createjs.Text(width, "20px Krungthep", "#1d55a9");
+    lengthOutput.x = sliderX - 35;
+    lengthOutput.y = sliderY + 160 + 6;
+    stage.addChild(lengthOutput);
+    
+    
+
+    // new Slider(min, max, width, height)
     widthSlider = new Slider(1, 5, 100, 30).set({
         x: sliderX,
         y: sliderY,
         value: 1 //default value
     });
-    
+
     // new Slider(min, max, width, height)
     heightSlider = new Slider(1, 5, 100, 30).set({
         x: sliderX,
         y: sliderY + 80,
         value: 1 //default value
     });
-    
+
     // new Slider(min, max, width, height)
     lengthSider = new Slider(1, 5, 100, 30).set({
         x: sliderX,
         y: sliderY + 160,
         value: 1 //default value
     });
-    
+
     widthSlider.on("change", handleWidthSliderChange, this); // assign event handler to the slider (What function to call)
-    
+
     heightSlider.on("change", handleHeightSliderChange, this); // assign event handler to the slider (What function to call)
-    
+
     lengthSider.on("change", handleLengthSliderChange, this); // assign event handler to the slider (What function to call)
-    
+
     stage.addChild(widthSlider, heightSlider, lengthSider);
-    
-    
+
+
     initMuteUnMuteButtons();
     initListeners();
 
@@ -109,18 +132,21 @@ function initGraphics() {
 }
 
 function handleWidthSliderChange(evt) {
-    width = Math.round(evt.target.value)
-        console.log("Width: " + width );
+    width = Math.round(evt.target.value);
+    widthOutput.text = width;
+//    console.log("Width: " + width);
 }
-                    
+
 function handleHeightSliderChange(evt) {
-        height = Math.round(evt.target.value)
-        console.log("Height: " + height);
+    height = Math.round(evt.target.value)
+    heightOutput.text = height;
+    console.log("Height: " + height);
 }
 
 function handleLengthSliderChange(evt) {
-        length = Math.round(evt.target.value)
-        console.log("Length: " + length );
+    length = Math.round(evt.target.value)
+    lengthOutput.text = length;
+    console.log("Length: " + length);
 }
 /*
  * Adds the mute and unmute buttons to the stage and defines listeners
@@ -162,13 +188,13 @@ var background;
  */
 function setupManifest() {
     manifest = [
-     {
+        {
             src: "images/Background.png",
             id: "background"
     }, {
             src: "images/mute.png",
             id: "mute"
-    },{
+    }, {
             src: "images/unmute.png",
             id: "unmute"
     }
@@ -198,7 +224,7 @@ function handleFileLoad(event) {
         muteButton = new createjs.Bitmap(event.result);
     } else if (event.item.id == "unmute") {
         unmuteButton = new createjs.Bitmap(event.result);
-    } 
+    }
 }
 
 function loadError(evt) {
