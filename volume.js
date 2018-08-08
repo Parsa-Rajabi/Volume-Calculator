@@ -126,6 +126,11 @@ function initGraphics() {
     stage.addChild(widthSlider, heightSlider, lengthSider);
 
 
+    
+    switchCM.x = switchM.x = 590;
+    switchCM.y = switchM.y = 20;
+    stage.addChild(switchCM, switchM);
+    switchCM.visible = false;
     initMuteUnMuteButtons();
     initListeners();
 
@@ -175,15 +180,31 @@ function initMuteUnMuteButtons() {
  * Add listeners to objects.
  */
 function initListeners() {
+    
+    //////////////ON SWITCH///////////////
+    switchCM.on("click", switchToCM);
+    switchM.on("click", switchToM);
 
 }
 
+function switchToCM(){
+    console.log("switch is to CM" );
+    switchM.visible = true;
+    switchCM.visible = false
+}
+
+function switchToM(){
+    console.log("switch is to M" );
+    switchCM.visible = true;
+    switchM.visible = false;
+}
 
 //////////////////////// PRELOADJS FUNCTIONS
 
 // bitmap variables
 var muteButton, unmuteButton;
 var background;
+var switchCM, switchM;
 
 
 /*
@@ -192,6 +213,12 @@ var background;
 function setupManifest() {
     manifest = [
         {
+            src: "images/switchLeft.png",
+            id: "LeftisM"
+    },{
+            src: "images/switchRight.png",
+            id: "RightisCM"
+    },{
             src: "images/Background.png",
             id: "background"
     }, {
@@ -221,7 +248,11 @@ function startPreload() {
 function handleFileLoad(event) {
     console.log("A file has loaded of type: " + event.item.type);
     // create bitmaps of images
-    if (event.item.id == "background") {
+    if (event.item.id == "RightisCM") {
+        switchCM = new createjs.Bitmap(event.result);
+    } else if (event.item.id == "LeftisM") {
+        switchM = new createjs.Bitmap(event.result);
+    } else if (event.item.id == "background") {
         background = new createjs.Bitmap(event.result);
     } else if (event.item.id == "mute") {
         muteButton = new createjs.Bitmap(event.result);
