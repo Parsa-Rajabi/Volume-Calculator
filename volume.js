@@ -91,7 +91,7 @@ function initGraphics() {
     sliderY = 160;
 
     textX = 660;
-    textY = 125;
+    textY = 125 -3;
 
     //////////////////////////////////////////ONE M START ///////////////////////////////
 
