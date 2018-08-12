@@ -24,6 +24,7 @@ var volume;
 var sliderX, sliderY;
 var textX, textY;
 var equX, equY;
+var volumeY;
 
 var checkSwitch;
 
@@ -54,49 +55,74 @@ function init() {
 
 function update(event) {
     if (gameStarted) {
+
+        //    width output
+        //new text(text, font, color)
+        stage.removeChild(W);
+        W = new createjs.Text(width, "21px Krungthep", "#1d55a9");
+        W.x = equX;
+        W.y = equY;
+        stage.addChild(W);
+
+        //    width output
+        //new text(text, font, color)
+        stage.removeChild(H);
+        H = new createjs.Text(height, "20px Krungthep", "#1d55a9");
+        H.x = equX + 72;
+        H.y = equY;
+        stage.addChild(H);
+
+
+        //    width output
+        //new text(text, font, color)
+        stage.removeChild(L);
+        L = new createjs.Text(length, "20px Krungthep", "#1d55a9");
+        L.x = equX + 140;
+        L.y = equY;
+        stage.addChild(L);
+
+
         
-         //    width output
-    //new text(text, font, color)
-    stage.removeChild(W);
-    W = new createjs.Text(width, "21px Krungthep", "#1d55a9");
-    W.x = equX;
-    W.y = equY;
-    stage.addChild(W);
-    
-      //    width output
-    //new text(text, font, color)
-    stage.removeChild(H);
-    H = new createjs.Text(height, "20px Krungthep", "#1d55a9");
-    H.x = equX + 72;
-    H.y = equY;
-    stage.addChild(H);
-    
-    
-      //    width output
-    //new text(text, font, color)
-    stage.removeChild(L);
-    L = new createjs.Text(length, "20px Krungthep", "#1d55a9");
-    L.x = equX + 140;
-    L.y = equY;
-    stage.addChild(L);
+        if (isChrome){
+            volumeY = 520;
+        }else 
+            volumeY = 525;
+        volume = width * height * length;
+        //    width output
+        //new text(text, font, color)
+        stage.removeChild(V);
+        V = new createjs.Text(volume, "20px Krungthep", "#1d55a9");
+        V.x = 620;
+        V.y = volumeY;
+        stage.addChild(V);
+
+
         
-    
-    volume = width * height * length;
-      //    width output
-    //new text(text, font, color)
-    stage.removeChild(V);
-    V = new createjs.Text(volume, "20px Krungthep", "#1d55a9");
-    V.x = 620;
-    V.y = 520;
-    stage.addChild(V);
-        
-        
-    if (checkSwitch){
-        W.text = width*10;
-        H.text = height*10;
-        L.text = length*10;
-        V.text = volume*1000;
-    }
+        if (checkSwitch) {
+            W.text = width * 10;
+            H.text = height * 10;
+            L.text = length * 10;
+            V.text = volume * 1000;
+        }
+//         if (height == 2) {
+//            c2.y = 408;
+////            cube.y = 408;
+//             stage.addChild(c2);
+//        } else if (height == 3) {
+//            c3.y = 358;
+////            cube.y = 358;
+//            stage.addChild(c2, c3);
+//        }   else if (height == 4) {
+//            c4.y = 308;
+////            cube.y = 308;
+//            stage.addChild(c4);
+//        } else if (height == 5) {
+//            c5.y = 258;
+////            cube.y = 258;
+//            stage.addChild(c5);
+//        } else
+//            stage.removeChild(c2, c3, c4, c5);
+
     }
 
     stage.update(event);
@@ -109,45 +135,45 @@ function endGame() {
     gameStarted = false;
 }
 
-
-
 /*
  * Place graphics and add them to the stage.
  */
 function initGraphics() {
     sliderX = 630;
     sliderY = 120;
-    
-    textX = 685;
-    textY = 83;
-    
-    equX = 595;
+
+  if (isChrome) {
+    textY = 80;
     equY = 458;
-    
+  }
+    textX = 675;
+    textY = 83;
+
+    equX = 595;
+    equY = 460;
+
     //    width output
     //new text(text, font, color)
     widthOutput = new createjs.Text(width, "21px Krungthep", "#1d55a9");
     widthOutput.x = textX;
     widthOutput.y = textY;
     stage.addChild(widthOutput);
-    
-    
-      //    width output
+
+
+    //    width output
     //new text(text, font, color)
     heightOutput = new createjs.Text(height, "20px Krungthep", "#1d55a9");
     heightOutput.x = textX;
     heightOutput.y = textY + 80;
     stage.addChild(heightOutput);
-    
-    
-      //    width output
+
+
+    //    width output
     //new text(text, font, color)
     lengthOutput = new createjs.Text(length, "20px Krungthep", "#1d55a9");
     lengthOutput.x = textX;
     lengthOutput.y = textY + 160;
     stage.addChild(lengthOutput);
-    
-    
 
     // new Slider(min, max, width, height)
     widthSlider = new Slider(1, 5, 100, 30).set({
@@ -179,13 +205,17 @@ function initGraphics() {
     stage.addChild(widthSlider, heightSlider, lengthSider);
 
 
-    
+
     switchCM.x = switchM.x = 600;
     switchCM.y = switchM.y = 335;
     stage.addChild(switchCM, switchM);
+
+    cube.x = 254;
+    cube.y = 458;
+
+    c2 = c3 = c4 = c5 = cube.clone();
+//    c2.visible = c3.visible = c4.visible = c5.visible = false;
     
-    
-   
     
     switchCM.visible = false;
     initMuteUnMuteButtons();
@@ -199,7 +229,7 @@ function initGraphics() {
 function handleWidthSliderChange(evt) {
     width = Math.round(evt.target.value);
     widthOutput.text = width;
-//    console.log("Width: " + width);
+    //    console.log("Width: " + width);
 }
 
 function handleHeightSliderChange(evt) {
@@ -237,23 +267,25 @@ function initMuteUnMuteButtons() {
  * Add listeners to objects.
  */
 function initListeners() {
-    
+
     //////////////ON SWITCH///////////////
     switchCM.on("click", switchToOneM);
     switchM.on("click", switchToTenM);
 
 }
 
-function switchToOneM(){
+function switchToOneM() {
+
     checkSwitch = false;
-    console.log("switch is to one M" );
+    console.log("switch is to one M");
     switchM.visible = true;
     switchCM.visible = false
 }
 
-function switchToTenM(){
+function switchToTenM() {
+
     checkSwitch = true;
-    console.log("switch is ten M" );
+    console.log("switch is ten M");
     switchCM.visible = true;
     switchM.visible = false;
 }
@@ -264,6 +296,8 @@ function switchToTenM(){
 var muteButton, unmuteButton;
 var background;
 var switchCM, switchM;
+var cube;
+var c2, c3, c4, c5;
 
 
 /*
@@ -272,12 +306,15 @@ var switchCM, switchM;
 function setupManifest() {
     manifest = [
         {
+            src: "images/cube.png",
+            id: "cube"
+    }, {
             src: "images/switchLeft.png",
             id: "LeftisM"
-    },{
+    }, {
             src: "images/switchRight.png",
             id: "RightisCM"
-    },{
+    }, {
             src: "images/Background.png",
             id: "background"
     }, {
@@ -307,7 +344,9 @@ function startPreload() {
 function handleFileLoad(event) {
     console.log("A file has loaded of type: " + event.item.type);
     // create bitmaps of images
-    if (event.item.id == "RightisCM") {
+    if (event.item.id == "cube") {
+        cube = new createjs.Bitmap(event.result);
+    } else if (event.item.id == "RightisCM") {
         switchCM = new createjs.Bitmap(event.result);
     } else if (event.item.id == "LeftisM") {
         switchM = new createjs.Bitmap(event.result);
