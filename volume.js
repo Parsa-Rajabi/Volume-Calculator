@@ -59,7 +59,7 @@ function update(event) {
         //    width output
         //new text(text, font, color)
         stage.removeChild(W);
-        W = new createjs.Text(width, "21px Krungthep", "#1d55a9");
+        W = new createjs.Text(width, "19px Krungthep", "#1d55a9");
         W.x = equX;
         W.y = equY;
         stage.addChild(W);
@@ -67,8 +67,8 @@ function update(event) {
         //    width output
         //new text(text, font, color)
         stage.removeChild(H);
-        H = new createjs.Text(height, "20px Krungthep", "#1d55a9");
-        H.x = equX + 72;
+        H = new createjs.Text(height, "18px Krungthep", "#1d55a9");
+        H.x = equX + 75;
         H.y = equY;
         stage.addChild(H);
 
@@ -76,8 +76,8 @@ function update(event) {
         //    width output
         //new text(text, font, color)
         stage.removeChild(L);
-        L = new createjs.Text(length, "20px Krungthep", "#1d55a9");
-        L.x = equX + 140;
+        L = new createjs.Text(length, "18px Krungthep", "#1d55a9");
+        L.x = equX + 145;
         L.y = equY;
         stage.addChild(L);
 
@@ -86,13 +86,14 @@ function update(event) {
         if (isChrome){
             volumeY = 520;
         }else 
-            volumeY = 525;
+            volumeY = 555;
+        
         volume = width * height * length;
         //    width output
         //new text(text, font, color)
         stage.removeChild(V);
-        V = new createjs.Text(volume, "20px Krungthep", "#1d55a9");
-        V.x = 620;
+        V = new createjs.Text(volume, "19px Krungthep", "#1d55a9");
+        V.x = 550;
         V.y = volumeY;
         stage.addChild(V);
 
@@ -149,8 +150,8 @@ function initGraphics() {
     textX = 675;
     textY = 83;
 
-    equX = 595;
-    equY = 460;
+    equX = 560;
+    equY = 530;
 
     //    width output
     //new text(text, font, color)
@@ -172,7 +173,7 @@ function initGraphics() {
     //new text(text, font, color)
     lengthOutput = new createjs.Text(length, "20px Krungthep", "#1d55a9");
     lengthOutput.x = textX;
-    lengthOutput.y = textY + 160;
+    lengthOutput.y = textY + 165;
     stage.addChild(lengthOutput);
 
     // new Slider(min, max, width, height)
@@ -207,7 +208,7 @@ function initGraphics() {
 
 
     switchCM.x = switchM.x = 600;
-    switchCM.y = switchM.y = 335;
+    switchCM.y = switchM.y = 400;
     stage.addChild(switchCM, switchM);
 
     cube.x = 254;
