@@ -215,16 +215,10 @@ function initGraphics() {
 
     cube.x = 254;
     cube.y = 458;
-<<<<<<< HEAD
-    stage.addChild(cube);
-//    c2 = c3 = c4 = c5 = cube.clone();
-=======
-	
-	updateCube();
+    updateCube();
 	
 
     c2 = c3 = c4 = c5 = cube.clone();
->>>>>>> 1f25f9d2f3a000aa80130ca7ed7f6ecb74bc9768
 //    c2.visible = c3.visible = c4.visible = c5.visible = false;
     
     
