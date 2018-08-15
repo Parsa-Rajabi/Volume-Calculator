@@ -236,25 +236,16 @@ function updateCube() {
 	var originY = 458;
 	
 	for (var i = 0; i < heightSlider.value; i++) {
-		var temp = Object.create(cube);
-		temp.x = originX;
-		temp.y = originY - i * cube.image.height/2;
-		stage.addChild(temp);
+		for (var j = 0; j < lengthSider.value; j++) {
+			for (var k = 0; k < widthSlider.value; k++) {
+				var temp = Object.create(cube);
+				temp.x = originX + j * cube.image.width/2  - k * cube.image.width/2;
+				temp.y = originY - i * cube.image.height/2  - 22 * j  - 22 * k;
+				stage.addChild(temp);
+			}
+		}
 	}	
 	
-	for (var j = 0; j < lengthSider.value; j++) {
-		var temp = Object.create(cube);
-		temp.x = originX + j * cube.image.width/2
-		temp.y = originY - 22 * j;
-		stage.addChildAt(temp, 2);
-	}
-	
-	for (var k = 0; k < widthSlider.value; k++) {
-		var temp = Object.create(cube);
-		temp.x = originX - k * cube.image.width/2
-		temp.y = originY - 22 * k;
-		stage.addChildAt(temp, 2);
-	}
 }
 
 function handleWidthSliderChange(evt) {
