@@ -214,15 +214,7 @@ function initGraphics() {
     cube.x = 254;
     cube.y = 458;
 	
-	var originX = 254;
-	var originY = 458;
-	
-	for (var i = 0; i < 3; i++) {
-		var temp = Object.create(cube);
-		temp.x = originX;
-		temp.y = originY - i * cube.image.height/2;
-		stage.addChild(temp);
-	}
+	updateCube();
 	
 
     c2 = c3 = c4 = c5 = cube.clone();
@@ -238,22 +230,37 @@ function initGraphics() {
     stage.update();
 }
 
+function updateCube() {
+	var originX = 254;
+	var originY = 458;
+	
+	for (var i = 0; i < heightSlider.value; i++) {
+		var temp = Object.create(cube);
+		temp.x = originX;
+		temp.y = originY - i * cube.image.height/2;
+		stage.addChild(temp);
+	}	
+}
+
 function handleWidthSliderChange(evt) {
     width = Math.round(evt.target.value);
     widthOutput.text = width;
     //    console.log("Width: " + width);
+	updateCube();
 }
 
 function handleHeightSliderChange(evt) {
     height = Math.round(evt.target.value)
     heightOutput.text = height;
     console.log("Height: " + height);
+	updateCube();
 }
 
 function handleLengthSliderChange(evt) {
     length = Math.round(evt.target.value)
     lengthOutput.text = length;
     console.log("Length: " + length);
+	updateCube();
 }
 /*
  * Adds the mute and unmute buttons to the stage and defines listeners
