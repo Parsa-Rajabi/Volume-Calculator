@@ -213,6 +213,17 @@ function initGraphics() {
 
     cube.x = 254;
     cube.y = 458;
+	
+	var originX = 254;
+	var originY = 458;
+	
+	for (var i = 0; i < 3; i++) {
+		var temp = Object.create(cube);
+		temp.x = originX;
+		temp.y = originY - i * cube.image.height/2;
+		stage.addChild(temp);
+	}
+	
 
     c2 = c3 = c4 = c5 = cube.clone();
 //    c2.visible = c3.visible = c4.visible = c5.visible = false;
