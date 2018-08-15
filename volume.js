@@ -1,3 +1,5 @@
+use String;
+
 /**
  * BCLearningNetwork.com
  * Volume Calculator  
@@ -213,8 +215,7 @@ function initGraphics() {
 
     cube.x = 254;
     cube.y = 458;
-	
-	updateCube();
+    updateCube();
 	
 
     c2 = c3 = c4 = c5 = cube.clone();
