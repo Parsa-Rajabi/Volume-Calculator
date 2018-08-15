@@ -1,4 +1,4 @@
-use String;
+// use String;
 
 /**
  * BCLearningNetwork.com
@@ -247,7 +247,14 @@ function updateCube() {
 		temp.x = originX + j * cube.image.width/2
 		temp.y = originY - 22 * j;
 		stage.addChildAt(temp, 2);
-	}	
+	}
+	
+	for (var k = 0; k < widthSlider.value; k++) {
+		var temp = Object.create(cube);
+		temp.x = originX - k * cube.image.width/2
+		temp.y = originY - 22 * k;
+		stage.addChildAt(temp, 2);
+	}
 }
 
 function handleWidthSliderChange(evt) {
