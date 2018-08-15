@@ -240,6 +240,13 @@ function updateCube() {
 		temp.y = originY - i * cube.image.height/2;
 		stage.addChild(temp);
 	}	
+	
+	for (var j = 0; j < lengthSider.value; j++) {
+		var temp = Object.create(cube);
+		temp.x = originX + j * cube.image.width/2
+		temp.y = originY - 22 * j;
+		stage.addChildAt(temp, 2);
+	}	
 }
 
 function handleWidthSliderChange(evt) {
