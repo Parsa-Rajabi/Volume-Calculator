@@ -245,7 +245,6 @@ function updateCube() {
 			}
 		}
 	}	
-	
 }
 
 function handleWidthSliderChange(evt) {
