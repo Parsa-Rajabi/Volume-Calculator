@@ -18,7 +18,7 @@ var width = 1;
 var height = 1;
 var length = 1;
 
-var widthSlider, heightSlider, lengthSider;
+var widthSlider, heightSlider, lengthSlider;
 var widthOutput, heightOutput, lengthOutput;
 var W, H, L, V;
 var volume;
@@ -29,7 +29,7 @@ var equX, equY;
 var volumeY;
 
 var checkSwitch;
-
+var sliderCheck = false;
 
 // Chrome 1+
 var isChrome = !!window.chrome && !!window.chrome.webstore;
@@ -84,12 +84,12 @@ function update(event) {
         stage.addChild(L);
 
 
-        
-        if (isChrome){
+
+        if (isChrome) {
             volumeY = 520;
-        }else 
+        } else
             volumeY = 555;
-        
+
         volume = width * height * length;
         //    width output
         //new text(text, font, color)
@@ -100,31 +100,13 @@ function update(event) {
         stage.addChild(V);
 
 
-        
+
         if (checkSwitch) {
             W.text = width * 10;
             H.text = height * 10;
             L.text = length * 10;
             V.text = volume * 1000;
         }
-//         if (height == 2) {
-//            c2.y = 408;
-////            cube.y = 408;
-//             stage.addChild(c2);
-//        } else if (height == 3) {
-//            c3.y = 358;
-////            cube.y = 358;
-//            stage.addChild(c2, c3);
-//        }   else if (height == 4) {
-//            c4.y = 308;
-////            cube.y = 308;
-//            stage.addChild(c4);
-//        } else if (height == 5) {
-//            c5.y = 258;
-////            cube.y = 258;
-//            stage.addChild(c5);
-//        } else
-//            stage.removeChild(c2, c3, c4, c5);
 
     }
 
@@ -145,10 +127,10 @@ function initGraphics() {
     sliderX = 630;
     sliderY = 120;
 
-  if (isChrome) {
-    textY = 80;
-    equY = 458;
-  }
+    if (isChrome) {
+        textY = 80;
+        equY = 458;
+    }
     textX = 675;
     textY = 83;
 
@@ -193,7 +175,7 @@ function initGraphics() {
     });
 
     // new Slider(min, max, width, height)
-    lengthSider = new Slider(1, 5, 100, 30).set({
+    lengthSlider = new Slider(1, 5, 100, 30).set({
         x: sliderX,
         y: sliderY + 160,
         value: 1 //default value
@@ -203,9 +185,12 @@ function initGraphics() {
 
     heightSlider.on("change", handleHeightSliderChange, this); // assign event handler to the slider (What function to call)
 
-    lengthSider.on("change", handleLengthSliderChange, this); // assign event handler to the slider (What function to call)
+    lengthSlider.on("change", handleLengthSliderChange, this); // assign event handler to the slider (What function to call)
 
-    stage.addChild(widthSlider, heightSlider, lengthSider);
+    heightSlider.on("pressmove", heightMoves, this);
+    heightSlider.on("mousedown", heightChange, this);
+
+    stage.addChild(widthSlider, heightSlider, lengthSlider);
 
 
 
@@ -216,12 +201,7 @@ function initGraphics() {
     cube.x = 254;
     cube.y = 458;
     updateCube();
-	
 
-    c2 = c3 = c4 = c5 = cube.clone();
-//    c2.visible = c3.visible = c4.visible = c5.visible = false;
-    
-    
     switchCM.visible = false;
     initMuteUnMuteButtons();
     initListeners();
@@ -231,41 +211,64 @@ function initGraphics() {
     stage.update();
 }
 
-function updateCube() {
-	var originX = 254;
-	var originY = 458;
-	
-	for (var i = 0; i < heightSlider.value; i++) {
-		for (var j = 0; j < lengthSider.value; j++) {
-			for (var k = 0; k < widthSlider.value; k++) {
-				var temp = Object.create(cube);
-				temp.x = originX + j * cube.image.width/2  - k * cube.image.width/2;
-				temp.y = originY - i * cube.image.height/2  - 22 * j  - 22 * k;
-				stage.addChild(temp);
-			}
-		}
-	}	
+function heightMoves(){
+    console.log("Height change");
 }
+
+function heightChange(){
+        console.log("Height mousedown");
+}
+
+function updateCube() {
+    var originX = 254;
+    var originY = 458;
+    var new_height = height;
+    var new_length = length;
+    var new_width = width;
+    
+    for (var x = 0; x < height; x++) {
+        for (var y = 0; y < length; y++) {
+            for (var z = 0; z < width; z++) {
+                var temp = Object.create(cube);
+                temp.x = originX + y * cube.image.width / 2 - z * cube.image.width / 2;
+                temp.y = originY - x * cube.image.height / 2 - 22 * y - 22 * z;
+                if (sliderCheck) {
+                    stage.addChildAt(temp, 2);
+                } else if (!sliderCheck)
+                    stage.addChildAt(temp, 3);
+//                var temp1 = height;
+//                height = new_height;
+//                new_height = temp1;
+//                console.log("height is " + height);
+//                console.log("New Height is " + new_height);
+            }
+        }
+    }
+}
+
 
 function handleWidthSliderChange(evt) {
     width = Math.round(evt.target.value);
     widthOutput.text = width;
-    //    console.log("Width: " + width);
-	updateCube();
+    console.log("Width: " + width);
+    sliderCheck = false;
+    updateCube();
 }
 
 function handleHeightSliderChange(evt) {
     height = Math.round(evt.target.value)
     heightOutput.text = height;
     console.log("Height: " + height);
-	updateCube();
+    sliderCheck = true;
+    updateCube();
 }
 
 function handleLengthSliderChange(evt) {
     length = Math.round(evt.target.value)
     lengthOutput.text = length;
     console.log("Length: " + length);
-	updateCube();
+    sliderCheck = false;
+    updateCube();
 }
 /*
  * Adds the mute and unmute buttons to the stage and defines listeners
