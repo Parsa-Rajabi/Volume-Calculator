@@ -86,7 +86,8 @@ function update(event) {
 
 
         if (isChrome) {
-            volumeY = 520;
+            volumeY = 551;
+            equY = 525;
         } else
             volumeY = 555;
 
@@ -129,7 +130,6 @@ function initGraphics() {
 
     if (isChrome) {
         textY = 80;
-        equY = 458;
     }
     textX = 675;
     textY = 83;
@@ -157,7 +157,7 @@ function initGraphics() {
     //new text(text, font, color)
     lengthOutput = new createjs.Text(length, "20px Krungthep", "#1d55a9");
     lengthOutput.x = textX;
-    lengthOutput.y = textY + 165;
+    lengthOutput.y = textY + 164;
     stage.addChild(lengthOutput);
 
     // new Slider(min, max, width, height)
@@ -236,11 +236,6 @@ function updateCube() {
                     stage.addChildAt(temp, 2);
                 } else if (!sliderCheck)
                     stage.addChildAt(temp, 3);
-//                var temp1 = height;
-//                height = new_height;
-//                new_height = temp1;
-//                console.log("height is " + height);
-//                console.log("New Height is " + new_height);
             }
         }
     }
