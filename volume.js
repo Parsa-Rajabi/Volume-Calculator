@@ -236,13 +236,6 @@ function updateCube() {
                 cubes[cubeIndex].x = originX + y * cube.image.width / 2 - z * cube.image.width / 2;
                 cubes[cubeIndex].y = originY - x * cube.image.height / 2 - 22 * y - 22 * z;
                 stage.addChild(cubes[cubeIndex]);
-                /*var temp = Object.create(cube);
-                temp.x = originX + y * cube.image.width / 2 - z * cube.image.width / 2;
-                temp.y = originY - x * cube.image.height / 2 - 22 * y - 22 * z;
-                if (sliderCheck) {
-                    stage.addChildAt(temp, 2);
-                } else if (!sliderCheck)
-                    stage.addChildAt(temp, 3); */
                 cubeIndex++;
             }
         }
@@ -253,7 +246,6 @@ function resetCubes(){
     for (var i = 0; i < cubes.length;i++){
         stage.removeChild(cubes[i]);
     }
-
     cubes = [];
     cubeIndex = 0;
 }
