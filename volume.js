@@ -1,9 +1,8 @@
-// use String;
-
 /**
  * BCLearningNetwork.com
  * Volume Calculator  
  * @author Parsa Rajabi - ParsaRajabiPR@gmail.com
+ * co-autors Brittany Miller and Colin Bernard
  * August 2018
  */
 
@@ -28,8 +27,7 @@ var textX, textY;
 var equX, equY;
 var volumeY;
 
-var checkSwitch;
-var sliderCheck = false;
+var checkSwitch = false;
 var cubes = [];
 var cubeIndex = 0;
 
@@ -68,7 +66,7 @@ function update(event) {
         W.y = equY;
         stage.addChild(W);
 
-        //    width output
+        //    Height output
         //new text(text, font, color)
         stage.removeChild(H);
         H = new createjs.Text(height, "18px Krungthep", "#1d55a9");
@@ -77,7 +75,7 @@ function update(event) {
         stage.addChild(H);
 
 
-        //    width output
+        //    Length output
         //new text(text, font, color)
         stage.removeChild(L);
         L = new createjs.Text(length, "18px Krungthep", "#1d55a9");
@@ -85,8 +83,7 @@ function update(event) {
         L.y = equY;
         stage.addChild(L);
 
-
-
+        //changes the Y postion of text boxes if the application is chrome
         if (isChrome) {
             volumeY = 551;
             equY = 525;
@@ -102,8 +99,7 @@ function update(event) {
         V.y = volumeY;
         stage.addChild(V);
 
-
-
+        //the checkSwitch boolean checks if the switch has been toggled or not and if so, the value of W, H, L and V are changed 
         if (checkSwitch) {
             W.text = width * 10;
             H.text = height * 10;
@@ -146,14 +142,12 @@ function initGraphics() {
     widthOutput.y = textY;
     stage.addChild(widthOutput);
 
-
     //    width output
     //new text(text, font, color)
     heightOutput = new createjs.Text(height, "20px Krungthep", "#1d55a9");
     heightOutput.x = textX;
     heightOutput.y = textY + 80;
     stage.addChild(heightOutput);
-
 
     //    width output
     //new text(text, font, color)
@@ -189,22 +183,15 @@ function initGraphics() {
 
     lengthSlider.on("change", handleLengthSliderChange, this); // assign event handler to the slider (What function to call)
 
-    heightSlider.on("pressmove", heightMoves, this);
-    heightSlider.on("mousedown", heightChange, this);
-
     stage.addChild(widthSlider, heightSlider, lengthSlider);
 
+    switch10m.x = switchM.x = 600;
+    switch10m.y = switchM.y = 400;
+    stage.addChild(switch10m, switchM);
 
-
-    switchCM.x = switchM.x = 600;
-    switchCM.y = switchM.y = 400;
-    stage.addChild(switchCM, switchM);
-
-    cube.x = 254;
-    cube.y = 458;
     updateCube();
 
-    switchCM.visible = false;
+    switch10m.visible = false;
     initMuteUnMuteButtons();
     initListeners();
 
@@ -213,18 +200,11 @@ function initGraphics() {
     stage.update();
 }
 
-function heightMoves(){
-    console.log("Height change");
-}
-
-function heightChange(){
-        console.log("Height mousedown");
-}
-
+//updates the cube and adds the length, width and height depending on the value of respective variables (through sliders)
 function updateCube() {
     resetCubes();
     var originX = 254;
-    var originY = 458;
+    var originY = 450;
     var new_height = height;
     var new_length = length;
     var new_width = width;
@@ -242,6 +222,7 @@ function updateCube() {
     }
 }
 
+//removes all the cubes from the stage and resets for the next updateCube
 function resetCubes(){
     for (var i = 0; i < cubes.length;i++){
         stage.removeChild(cubes[i]);
@@ -254,24 +235,21 @@ function resetCubes(){
 function handleWidthSliderChange(evt) {
     width = Math.round(evt.target.value);
     widthOutput.text = width;
-    console.log("Width: " + width);
-    sliderCheck = false;
+//    console.log("Width: " + width);
     updateCube();
 }
 
 function handleHeightSliderChange(evt) {
     height = Math.round(evt.target.value)
     heightOutput.text = height;
-    console.log("Height: " + height);
-    sliderCheck = true;
+//    console.log("Height: " + height);
     updateCube();
 }
 
 function handleLengthSliderChange(evt) {
     length = Math.round(evt.target.value)
     lengthOutput.text = length;
-    console.log("Length: " + length);
-    sliderCheck = false;
+//    console.log("Length: " + length);
     updateCube();
 }
 /*
@@ -300,24 +278,24 @@ function initMuteUnMuteButtons() {
 function initListeners() {
 
     //////////////ON SWITCH///////////////
-    switchCM.on("click", switchToOneM);
+    switch10m.on("click", switchToOneM);
     switchM.on("click", switchToTenM);
 
 }
 
 function switchToOneM() {
-
-    checkSwitch = false;
-    console.log("switch is to one M");
+    playSound("toggle");
+    checkSwitch = true;
+//    console.log("switch is to one M");
     switchM.visible = true;
-    switchCM.visible = false
+    switch10m.visible = false
 }
 
 function switchToTenM() {
-
-    checkSwitch = true;
-    console.log("switch is ten M");
-    switchCM.visible = true;
+    playSound("toggle");
+    checkSwitch = false;
+//    console.log("switch is ten M");
+    switch10m.visible = true;
     switchM.visible = false;
 }
 
@@ -326,10 +304,9 @@ function switchToTenM() {
 // bitmap variables
 var muteButton, unmuteButton;
 var background;
-var switchCM, switchM;
+var switch10m, switchM;
 var cube;
-var c2, c3, c4, c5;
-
+var toggle;
 
 /*
  * Add files to be loaded here.
@@ -337,6 +314,9 @@ var c2, c3, c4, c5;
 function setupManifest() {
     manifest = [
         {
+            src: "sounds/click2.mp3",
+            id: "toggle"
+    },{
             src: "images/cube.png",
             id: "cube"
     }, {
@@ -375,10 +355,12 @@ function startPreload() {
 function handleFileLoad(event) {
     console.log("A file has loaded of type: " + event.item.type);
     // create bitmaps of images
-    if (event.item.id == "cube") {
+     if (event.item.id == "toggle") {
+        toggle = new createjs.Bitmap(event.result);
+    } else if (event.item.id == "cube") {
         cube = new createjs.Bitmap(event.result);
     } else if (event.item.id == "RightisCM") {
-        switchCM = new createjs.Bitmap(event.result);
+        switch10m = new createjs.Bitmap(event.result);
     } else if (event.item.id == "LeftisM") {
         switchM = new createjs.Bitmap(event.result);
     } else if (event.item.id == "background") {
