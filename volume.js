@@ -30,6 +30,8 @@ var volumeY;
 
 var checkSwitch;
 var sliderCheck = false;
+var cubes = [];
+var cubeIndex = 0;
 
 // Chrome 1+
 var isChrome = !!window.chrome && !!window.chrome.webstore;
@@ -220,6 +222,7 @@ function heightChange(){
 }
 
 function updateCube() {
+    resetCubes();
     var originX = 254;
     var originY = 458;
     var new_height = height;
@@ -227,18 +230,32 @@ function updateCube() {
     var new_width = width;
     
     for (var x = 0; x < height; x++) {
-        for (var y = 0; y < length; y++) {
-            for (var z = 0; z < width; z++) {
-                var temp = Object.create(cube);
+        for (var y = length-1; y >= 0; y--) {
+            for (var z = width-1; z >= 0; z--) {
+                cubes[cubeIndex] = Object.create(cube);
+                cubes[cubeIndex].x = originX + y * cube.image.width / 2 - z * cube.image.width / 2;
+                cubes[cubeIndex].y = originY - x * cube.image.height / 2 - 22 * y - 22 * z;
+                stage.addChild(cubes[cubeIndex]);
+                /*var temp = Object.create(cube);
                 temp.x = originX + y * cube.image.width / 2 - z * cube.image.width / 2;
                 temp.y = originY - x * cube.image.height / 2 - 22 * y - 22 * z;
                 if (sliderCheck) {
                     stage.addChildAt(temp, 2);
                 } else if (!sliderCheck)
-                    stage.addChildAt(temp, 3);
+                    stage.addChildAt(temp, 3); */
+                cubeIndex++;
             }
         }
     }
+}
+
+function resetCubes(){
+    for (var i = 0; i < cubes.length;i++){
+        stage.removeChild(cubes[i]);
+    }
+
+    cubes = [];
+    cubeIndex = 0;
 }
 
 
