@@ -186,7 +186,7 @@ function initGraphics() {
     stage.addChild(widthSlider, heightSlider, lengthSlider);
 
     switch10m.x = switchM.x = 600;
-    switch10m.y = switchM.y = 400;
+    switch10m.y = switchM.y = 410;
     stage.addChild(switch10m, switchM);
 
     updateCube();
@@ -285,7 +285,7 @@ function initListeners() {
 
 function switchToOneM() {
     playSound("toggle");
-    checkSwitch = true;
+    checkSwitch = false;
 //    console.log("switch is to one M");
     switchM.visible = true;
     switch10m.visible = false
@@ -293,7 +293,7 @@ function switchToOneM() {
 
 function switchToTenM() {
     playSound("toggle");
-    checkSwitch = false;
+    checkSwitch = true;
 //    console.log("switch is ten M");
     switch10m.visible = true;
     switchM.visible = false;
